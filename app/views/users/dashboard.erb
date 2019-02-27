@@ -18,4 +18,18 @@
       </li>
     <% end %>
   </ul>
-  <a href="/notes/new">New Note</a>
+  <a href="/notes/new">Add Note</a>
+
+  <h3>Medications:</h3>
+  <ul>
+    <% current_user.medicines.each do |medicine| %>
+      <li>
+        <%= medicine.name %> - <%= medicine.dose %>
+        <br>
+        <%= medicine.description %>
+        <br>
+        <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
+      </li>
+    <% end %>
+  </ul>
+  <a href="/medicines/new">Add Medication</a>

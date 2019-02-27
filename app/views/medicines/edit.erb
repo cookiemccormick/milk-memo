@@ -1,0 +1,24 @@
+<h2>Edit Mediciation</h2>
+
+<form action="/medicines/<%= @medicine.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label>Mediciation Name:</label>
+  <input type="text" name="medicine[name]" id="medicine_name" value="<%= @medicine.name %>">
+
+  <label>Dosage:</label>
+  <input type="text" name="medicine[dose]" id="dose" value="<%= @medicine.dose %>">
+
+  <label>Description</label>
+  <input type="text" name="medicine[description]" id="description" value="<%= @medicine.description %>">
+
+  <input type="submit" id="submit" value="Update">
+</form>
+
+<br>
+
+<form action="/medicines/<%= @medicine.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+
+  <input type="submit" id="submit" value="Delete">
+</form>
