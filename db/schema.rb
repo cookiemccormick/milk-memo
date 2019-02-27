@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20190226232548) do
 
   create_table "babies", force: :cascade do |t|
     t.integer  "user_id",    null: false
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "due_date",   null: false
     t.string   "gender",     null: false
     t.datetime "created_at", null: false
