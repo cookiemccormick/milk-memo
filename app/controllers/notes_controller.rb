@@ -46,4 +46,16 @@ class NotesController < ApplicationController
       redirect '/login'
     end
   end
+
+  delete '/notes/:id' do
+    if logged_in?
+      @note = current_user.notes.find_by(id: params[:id])
+      if @note
+        @note.destroy
+      end
+      redirect '/dashboard'
+    else
+      redirect '/login'
+    end
+  end
 end
