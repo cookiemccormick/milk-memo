@@ -3,13 +3,13 @@
 <form action="/appointments/<%= @appointment.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <label>Appointment:</label>
+  <label for="appointment_name">Appointment:</label>
   <input type="text" name="appointment[name]" id="appointment_name" value="<%= @appointment.name %>">
 
-  <label>Date:</label>
+  <label for="date">Date:</label>
   <input type="date" name="appointment[date]" id="date" value="<%= @appointment.date %>">
 
-  <label>Time:</label>
+  <label for ="time">Time:</label>
   <input type="time" name="appointment[time]" id="time" value="<%= @appointment.time %>">
 
   <input type="submit" id="submit" value="Update">

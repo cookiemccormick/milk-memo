@@ -2,17 +2,17 @@
 
 <form action="/signup" method="POST">
 
-  <label>Username:</label>
-  <input type="text" name="user[username]" placeholder="username">
+  <label for="username">Username:</label>
+  <input type="text" name="user[username]" id="username" placeholder="username">
 
-  <label>Password:</label>
-  <input type="password" name="user[password]" placeholder="password">
+  <label for="password">Password:</label>
+  <input type="password" name="user[password]" id="password" placeholder="password">
 
-  <label>Email:</label>
-  <input type="email" name="user[email]" placeholder="email">
+  <label for="email">Email:</label>
+  <input type="email" name="user[email]" id="email" placeholder="email">
 
-  <label>Due Date:</label>
-  <input type="date" name="baby[due_date]">
+  <label for="due_date">Due Date:</label>
+  <input type="date" name="baby[due_date]" id="due_date">
 
   <input type="submit" id="sign_up" value="Sign Up">
 </form>

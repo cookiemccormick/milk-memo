@@ -3,7 +3,7 @@
 <form action="/notes/<%= @note.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <label>Update Notes:</label>
+  <label for="content">Update Notes:</label>
   <input type="text" name="note[content]" id="content" value="<%= @note.content %>">
 
   <input type="submit" id="submit" value="Update">

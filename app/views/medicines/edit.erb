@@ -3,13 +3,13 @@
 <form action="/medicines/<%= @medicine.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <label>Mediciation Name:</label>
+  <label for="medicine_name">Medication Name:</label>
   <input type="text" name="medicine[name]" id="medicine_name" value="<%= @medicine.name %>">
 
-  <label>Dosage:</label>
+  <label for="dose">Dosage:</label>
   <input type="text" name="medicine[dose]" id="dose" value="<%= @medicine.dose %>">
 
-  <label>Description</label>
+  <label for="description">Description</label>
   <input type="text" name="medicine[description]" id="description" value="<%= @medicine.description %>">
 
   <input type="submit" id="submit" value="Update">
