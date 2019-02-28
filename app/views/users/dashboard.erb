@@ -5,25 +5,22 @@
 </section>
 
 <section>
-  <h2>
+  <h3>
     <% if @baby.name.present? %>
       About <%= @baby.name %>:
     <% else %>
       About your baby:
     <% end %>
-  </h2>
-
-  <h3>
-    <% if @baby.name.present? %>
-      <%= @baby.name %>'s current size:
-     <% else %>
-      Your baby's current size:
-    <% end %>
   </h3>
+
+  <h4>Gender: <%= @baby.gender %></h4>
+  <h4>Due Date: <%= @baby.due_date.strftime("%m/%d/%y") %></h4>
+  <h4>Current Size:</h4>
   <figure>
     <img src="images/20_weeks.jpg" alt="baby size at 20 weeks">
     <figcaption>Baby/Fruit size comparison.</figcaption>
   </figure>
+  <a href="/baby/edit">Edit</a>
 </section>
 
 <section>
