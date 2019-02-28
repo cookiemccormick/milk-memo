@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   get '/dashboard' do
     if logged_in?
-      @birth_count = ((current_user.baby.due_date - Time.now) / 86400).ceil
+      @birth_count = (current_user.baby.due_date - Date.today).to_i
       @baby = current_user.baby
 
       erb :'/users/dashboard'

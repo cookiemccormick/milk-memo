@@ -43,7 +43,7 @@
   <ul>
     <% current_user.appointments.each do |appointment| %>
       <li>
-        <%= appointment.date %> - <%= appointment.time %>
+        <%= appointment.date.strftime("%m/%d") %> - <%= appointment.time.strftime("%H:%M%p") %>
         <br>
         <%= appointment.name %>
         <br>
@@ -52,7 +52,4 @@
     <% end %>
   </ul>
   <a href="/appointments/new">Add Appointment</a>
-
   <h3>
-
-

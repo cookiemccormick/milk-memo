@@ -24,7 +24,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :babies do |t|
       t.integer :user_id, null: false
       t.string :name
-      t.datetime :due_date, null: false
+      t.date :due_date, null: false
       t.string :gender, null: false
       t.timestamps null: false
     end
@@ -32,8 +32,8 @@ class CreateTables < ActiveRecord::Migration
     create_table :appointments do |t|
       t.integer :user_id, null: false
       t.string :name, null: false
-      t.datetime :date, null: false
-      t.datetime :time, null: false
+      t.date :date, null: false
+      t.time :time, null: false
       t.timestamps null: false
     end
   end
