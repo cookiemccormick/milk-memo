@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
 
   get '/appointments/:id/edit' do
     if logged_in?
-      @appointments = current_user.appointments.find_by(id: params[:id])
+      @appointment = current_user.appointments.find_by(id: params[:id])
       if @appointment
         erb :'/appointments/edit'
       else
@@ -41,7 +41,7 @@ class AppointmentsController < ApplicationController
       if params[:appointment][:name].present? ||
         params[:appointment][:date].present? ||
         params[:appointment][:time].present?
-        @appointments.update(params[:appointment])
+        @appointment.update(params[:appointment])
         redirect '/dashboard'
       else
         redirect "/appointments/#{@appointment.id}/edit"

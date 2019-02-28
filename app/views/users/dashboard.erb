@@ -43,7 +43,7 @@
   <ul>
     <% current_user.appointments.each do |appointment| %>
       <li>
-        <%= appointment.date.strftime("%m/%d") %> - <%= appointment.time.strftime("%H:%M%p") %>
+        <%= appointment.date.strftime("%m/%d") %> <%= appointment.time.strftime("%H:%M%p") %>
         <br>
         <%= appointment.name %>
         <br>
