@@ -5,16 +5,24 @@
 </section>
 
 <section>
+  <h2>
+    <% if @baby.name.present? %>
+      About <%= @baby.name %>:
+    <% else %>
+      About your baby:
+    <% end %>
+  </h2>
+
   <h3>
     <% if @baby.name.present? %>
       <%= @baby.name %>'s current size:
-        <% else %>
-          Your baby's current size:
+     <% else %>
+      Your baby's current size:
     <% end %>
   </h3>
   <figure>
     <img src="images/20_weeks.jpg" alt="baby size at 20 weeks">
-    <figcaption>Your baby is currently the same size as a banana.</figcaption>
+    <figcaption>Baby/Fruit size comparison.</figcaption>
   </figure>
 </section>
 
