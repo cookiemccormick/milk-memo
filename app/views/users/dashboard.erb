@@ -16,10 +16,18 @@
   <h4>Gender: <%= @baby.gender %></h4>
   <h4>Due Date: <%= @baby.due_date.strftime("%m/%d/%y") %></h4>
   <h4>Current Size:</h4>
-  <figure>
-    <img src="images/20_weeks.jpg" alt="baby size at 20 weeks">
-    <figcaption>Baby/Fruit size comparison.</figcaption>
-  </figure>
+
+  <% if @image < 4 %>
+    Your baby is still growing and not the size of any fruits yet.
+  <% else %>
+    <figure>
+      <img src="images/<%= @image %>_weeks.jpg" alt="baby size at <%= @image %> weeks">
+      <figcaption>Baby/Fruit size comparison.</figcaption>
+    </figure>
+  <% end %>
+
+  <br>
+  
   <a href="/baby/edit">Edit</a>
 </section>
 

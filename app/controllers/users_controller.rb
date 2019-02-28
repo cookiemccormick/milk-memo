@@ -44,6 +44,9 @@ class UsersController < ApplicationController
       @birth_count = (current_user.baby.due_date - Date.today).to_i
       @baby = current_user.baby
 
+      weeks_left = @birth_count / 7
+      @image = 40 - weeks_left
+
       erb :'/users/dashboard'
     else
       redirect '/login'
