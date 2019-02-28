@@ -1,55 +1,65 @@
-<h2>Welcome <%= current_user.username %> you have
-  <%= @birth_count %> days to go!
-</h2>
+<section>
+  <h2>Welcome <%= current_user.username %> you have
+    <%= @birth_count %> days to go!
+  </h2>
+</section>
 
-<h3>
-  <% if @baby.name.present? %>
-    <%= @baby.name %>'s current size:
-      <% else %>
-        Your baby's current size:
-  <% end %>
-</h3>
-<figure>
-  <img src="images/20_weeks.jpg" alt="baby size at 20 weeks">
-  <figcaption>Your baby is currently the same size as a banana.</figcaption>
-</figure>
-
-<h3>Notes:</h3>
-  <ul>
-    <% current_user.notes.each do |note| %>
-      <li>
-        <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
-        <a href="/notes/<%= note.id %>/edit">Edit</a>
-      </li>
-    <% end %>
-  </ul>
-  <a href="/notes/new">Add Note</a>
-
-  <h3>Medications:</h3>
-  <ul>
-    <% current_user.medicines.each do |medicine| %>
-      <li>
-        <%= medicine.name %> - <%= medicine.dose %>
-        <br>
-        <%= medicine.description %>
-        <br>
-        <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
-      </li>
-    <% end %>
-  </ul>
-  <a href="/medicines/new">Add Medication</a>
-
-  <h3>Appointments:</h3>
-  <ul>
-    <% current_user.appointments.each do |appointment| %>
-      <li>
-        <%= appointment.date.strftime("%m/%d") %> <%= appointment.time.strftime("%H:%M%p") %>
-        <br>
-        <%= appointment.name %>
-        <br>
-        <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
-      </li>
-    <% end %>
-  </ul>
-  <a href="/appointments/new">Add Appointment</a>
+<section>
   <h3>
+    <% if @baby.name.present? %>
+      <%= @baby.name %>'s current size:
+        <% else %>
+          Your baby's current size:
+    <% end %>
+  </h3>
+  <figure>
+    <img src="images/20_weeks.jpg" alt="baby size at 20 weeks">
+    <figcaption>Your baby is currently the same size as a banana.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h3>Notes:</h3>
+    <ul>
+      <% current_user.notes.each do |note| %>
+        <li>
+          <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
+          <a href="/notes/<%= note.id %>/edit">Edit</a>
+        </li>
+      <% end %>
+    </ul>
+    <a href="/notes/new">Add Note</a>
+  </section>
+
+  <section>
+    <h3>Medications:</h3>
+    <ul>
+      <% current_user.medicines.each do |medicine| %>
+        <li>
+          <%= medicine.name %> - <%= medicine.dose %>
+          <br>
+          <%= medicine.description %>
+          <br>
+          <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
+        </li>
+      <% end %>
+    </ul>
+    <a href="/medicines/new">Add Medication</a>
+  </section>
+
+  <section>
+    <h3>Appointments:</h3>
+    <ul>
+      <% current_user.appointments.each do |appointment| %>
+        <li>
+          <%= appointment.date.strftime("%m/%d") %> <%= appointment.time.strftime("%H:%M%p") %>
+          <br>
+          <%= appointment.name %>
+          <br>
+          <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
+        </li>
+      <% end %>
+    </ul>
+    <a href="/appointments/new">Add Appointment</a>
+    <h3>
+  </section>
