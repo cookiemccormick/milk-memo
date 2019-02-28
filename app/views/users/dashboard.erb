@@ -12,8 +12,7 @@
   <ul>
     <% current_user.notes.each do |note| %>
       <li>
-        <%= note.content %> - <%= note.created_at.month %>/<%= note.created_at.day %>
-        <br>
+        <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
         <a href="/notes/<%= note.id %>/edit">Edit</a>
       </li>
     <% end %>

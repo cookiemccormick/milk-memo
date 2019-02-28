@@ -1,0 +1,20 @@
+<h2>Create Your Baby</h2>
+
+<form action="/babies" method="POST">
+
+  <label for="baby_name">Baby Name:</label>
+  <input type="text" name="baby[name]" id="baby_name">
+
+  <br>
+  <br>
+
+  <label>Choose Your Baby's Gender:</label>
+  <% Baby::GENDERS.each do |gender| %>
+    <label><input type="radio" name="baby[user_id]" id="<%= gender %>" value="<%= gender %>"><%= gender %></label>
+  <% end %>
+
+  <br>
+  <br>
+
+  <input type="submit" id="submit" value="Submit">
+</form>

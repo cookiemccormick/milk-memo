@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20190226232548) do
     t.integer  "baby_id",    null: false
     t.string   "name",       null: false
     t.datetime "date",       null: false
+    t.datetime "time",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

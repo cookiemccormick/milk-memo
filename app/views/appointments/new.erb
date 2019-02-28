@@ -1,0 +1,15 @@
+<h2>Create New Appointment</h2>
+
+<form action="/appointments" method="POST">
+
+  <label>Appointment:</label>
+  <input type="text" name="appointment[name]" id="appointment_name">
+
+  <label>Date:</label>
+  <input type="date" name="appointment[date]" id="date">
+
+  <label>Time:</label>
+  <input type="time" name="appointment[time]" id="time">
+
+  <input type="submit" id="submit" value="Submit">
+</form>

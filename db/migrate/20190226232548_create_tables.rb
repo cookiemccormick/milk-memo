@@ -33,6 +33,7 @@ class CreateTables < ActiveRecord::Migration
       t.integer :baby_id, null: false
       t.string :name, null: false
       t.datetime :date, null: false
+      t.datetime :time, null: false
       t.timestamps null: false
     end
   end
