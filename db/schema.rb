@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20190226232548) do
 
   create_table "appointments", force: :cascade do |t|
-    t.integer  "baby_id",    null: false
+    t.integer  "user_id",    null: false
     t.string   "name",       null: false
     t.datetime "date",       null: false
     t.datetime "time",       null: false

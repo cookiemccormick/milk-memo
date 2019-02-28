@@ -6,5 +6,4 @@ class Baby < ActiveRecord::Base
   GENDERS = [MALE, FEMALE, UNKNOWN]
 
   belongs_to :user
-  has_many :appointments
 end

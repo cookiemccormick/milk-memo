@@ -30,7 +30,7 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :appointments do |t|
-      t.integer :baby_id, null: false
+      t.integer :user_id, null: false
       t.string :name, null: false
       t.datetime :date, null: false
       t.datetime :time, null: false

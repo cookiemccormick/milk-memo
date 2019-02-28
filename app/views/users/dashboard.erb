@@ -2,7 +2,13 @@
   <%= @birth_count %> days to go!
 </h2>
 
-<h3>Your baby's current size:</h3>
+<h3>
+  <% if @baby.name.present? %>
+    <%= @baby.name %>'s current size:
+      <% else %>
+        Your baby's current size:
+  <% end %>
+</h3>
 <figure>
   <img src="images/20_weeks.jpg" alt="baby size at 20 weeks">
   <figcaption>Your baby is currently the same size as a banana.</figcaption>
@@ -32,3 +38,21 @@
     <% end %>
   </ul>
   <a href="/medicines/new">Add Medication</a>
+
+  <h3>Appointments:</h3>
+  <ul>
+    <% current_user.appointments.each do |appointment| %>
+      <li>
+        <%= appointment.date %> - <%= appointment.time %>
+        <br>
+        <%= appointment.name %>
+        <br>
+        <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
+      </li>
+    <% end %>
+  </ul>
+  <a href="/appointments/new">Add Appointment</a>
+
+  <h3>
+
+

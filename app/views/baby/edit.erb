@@ -1,0 +1,27 @@
+<h2>Edit Your Baby</h2>
+
+<form action="/baby" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="baby_name">Baby Name:</label>
+  <input type="text" name="baby[name]" id="baby_name" value="<%= @baby.name %>">
+
+  <br>
+  <br>
+
+  <label for="due_date">Due Date:</label>
+  <input type="date" name="baby[due_date]" id="due_date" value="<%= @baby.due_date %>">
+
+  <br>
+  <br>
+
+  <label>Choose Your Baby's Gender:</label>
+  <% Baby::GENDERS.each do |gender| %>
+    <label><input type="radio" name="baby[gender]" id="<%= gender %>" value="<%= gender %>"><%= gender %></label>
+  <% end %>
+
+  <br>
+  <br>
+
+  <input type="submit" id="submit" value="Submit">
+</form>

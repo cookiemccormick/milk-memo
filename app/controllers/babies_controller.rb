@@ -1,21 +1,23 @@
 class BabiesController < ApplicationController
-  get '/babies/new' do
+  get '/baby/edit' do
     if logged_in?
-      erb :'/babies/new'
+      @baby = current_user.baby
+      erb :'/baby/edit'
     else
       redirect '/login'
     end
   end
 
-  post '/babies' do
+  patch '/baby' do
     if logged_in?
+      @baby = current_user.baby
       if params[:baby][:name].present? ||
+        params[:baby][:due_date].present? ||
         params[:baby][:gender].present?
-        @baby = current_user.babies.create(params[:user])
-        @baby.create_baby(params[:baby].merge(due_date))
+        @baby.update(params[:baby])
         redirect '/dashboard'
       else
-        redirect '/babies/new'
+        redirect "/baby/edit"
       end
     else
       redirect '/login'
