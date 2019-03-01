@@ -13,6 +13,8 @@ class AppointmentsController < ApplicationController
         params[:appointment][:date].present? ||
         params[:appointment][:time].present?
         @appointment = current_user.appointments.create(params[:appointment])
+
+        flash[:message] = "Your appointment has been added to the dashboard."
         redirect '/dashboard'
       else
         redirect '/appointments/new'
@@ -42,6 +44,7 @@ class AppointmentsController < ApplicationController
         params[:appointment][:date].present? ||
         params[:appointment][:time].present?
         @appointment.update(params[:appointment])
+        flash[:message] = "Your appointment has been updated."
         redirect '/dashboard'
       else
         redirect "/appointments/#{@appointment.id}/edit"
@@ -57,6 +60,7 @@ class AppointmentsController < ApplicationController
       if @appointment
         @appointment.destroy
       end
+      flash[:message] = "Appointment deleted."
       redirect '/dashboard'
     else
       redirect '/login'

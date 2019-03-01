@@ -15,6 +15,7 @@ class BabiesController < ApplicationController
         params[:baby][:due_date].present? ||
         params[:baby][:gender].present?
         @baby.update(params[:baby])
+        flash[:message] = "Your baby has been updated."
         redirect '/dashboard'
       else
         redirect "/baby/edit"

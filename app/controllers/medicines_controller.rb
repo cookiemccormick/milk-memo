@@ -13,6 +13,7 @@ class MedicinesController < ApplicationController
         params[:medicine][:dose].present? ||
         params[:medicine][:description].present?
         @medicine = current_user.medicines.create(params[:medicine])
+        flash[:message] = "Your medication has been added to the dashboard."
         redirect '/dashboard'
       else
         redirect '/notes/new'
@@ -42,6 +43,7 @@ class MedicinesController < ApplicationController
         params[:medicine][:dose].present? ||
         params[:medicine][:description].present?
         @medicine.update(params[:medicine])
+        flash[:message] = "Your medication has been updated."
         redirect '/dashboard'
       else
         redirect "/medicines/#{@medicine.id}/edit"
@@ -57,6 +59,7 @@ class MedicinesController < ApplicationController
       if @medicine
         @medicine.destroy
       end
+      flash[:message] = "Medication deleted."
       redirect '/dashboard'
     else
       redirect '/login'

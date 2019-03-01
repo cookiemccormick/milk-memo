@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       params[:user][:password].blank? ||
       params[:user][:email].blank? ||
       params[:baby][:due_date].blank?
+
       redirect '/signup'
     else
       @user = User.create(params[:user])

@@ -11,6 +11,7 @@ class NotesController < ApplicationController
     if logged_in?
       if params[:note][:content].present?
         @note = current_user.notes.create(content: params[:note][:content])
+        flash[:message] = "Your note has been added to the dashboard."
         redirect '/dashboard'
       else
         redirect '/notes/new'
@@ -38,6 +39,7 @@ class NotesController < ApplicationController
       @note = current_user.notes.find_by(id: params[:id])
       if params[:note][:content].present?
         @note.update(content: params[:note][:content])
+        flash[:message] = "Your note has been updated."
         redirect '/dashboard'
       else
         redirect "/notes/#{@note.id}/edit"
@@ -53,6 +55,7 @@ class NotesController < ApplicationController
       if @note
         @note.destroy
       end
+      flash[:message] = "Note deleted."
       redirect '/dashboard'
     else
       redirect '/login'
