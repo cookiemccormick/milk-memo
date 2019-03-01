@@ -32,9 +32,9 @@
 </section>
 
 <section>
-  <h3>Notes:</h3>
+  <h3>Notes Log:</h3>
     <ul>
-      <% current_user.notes.each do |note| %>
+      <% current_user.notes.order("created_at DESC").each do |note| %>
         <li>
           <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
           <a href="/notes/<%= note.id %>/edit">Edit</a>
