@@ -47,7 +47,7 @@
   <section>
     <h3>Medications:</h3>
     <ul>
-      <% current_user.medicines.each do |medicine| %>
+      <% current_user.medicines.order("name ASC").each do |medicine| %>
         <li>
           <%= medicine.name %> - <%= medicine.dose %>
           <br>
