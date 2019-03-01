@@ -10,7 +10,7 @@
   <input type="date" name="appointment[date]" id="date" value="<%= @appointment.date %>">
 
   <label for ="time">Time:</label>
-  <input type="time" name="appointment[time]" id="time" value="<%= @appointment.time %>">
+  <input type="time" name="appointment[time]" id="time" value="<%= @appointment.time.strftime("%H:%M") %>">
 
   <input type="submit" id="submit" value="Update">
 </form>

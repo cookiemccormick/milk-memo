@@ -5,5 +5,9 @@ class Baby < ActiveRecord::Base
 
   GENDERS = [MALE, FEMALE, UNKNOWN]
 
+  SIZES = {
+    "21" => "Carrot"
+  }
+
   belongs_to :user
 end

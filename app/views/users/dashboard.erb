@@ -14,15 +14,15 @@
   </h3>
 
   <h4>Gender: <%= @baby.gender %></h4>
-  <h4>Due Date: <%= @baby.due_date.strftime("%m/%d/%y") %></h4>
+  <h4>Due Date: <%= @baby.due_date.strftime("%-m/%-d/%y") %></h4>
   <h4>Current Size:</h4>
 
-  <% if @image < 4 %>
+  <% if @weeks < 4 %>
     Your baby is still growing and not the size of any fruits yet.
   <% else %>
     <figure>
-      <img src="images/<%= @image %>_weeks.jpg" alt="baby size at <%= @image %> weeks">
-      <figcaption>Baby/Fruit size comparison.</figcaption>
+      <img src="images/<%= @weeks %>_weeks.jpg" alt="baby size at <%= @weeks %> weeks">
+      <figcaption><%= Baby::SIZES[@weeks.to_s] %>Baby/Fruit size comparison.</figcaption>
     </figure>
   <% end %>
 
@@ -63,9 +63,9 @@
   <section>
     <h3>Appointments:</h3>
     <ul>
-      <% current_user.appointments.each do |appointment| %>
+      <% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
         <li>
-          <%= appointment.date.strftime("%m/%d") %> <%= appointment.time.strftime("%H:%M%p") %>
+          <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
           <br>
           <%= appointment.name %>
           <br>

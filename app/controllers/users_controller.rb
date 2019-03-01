@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       @baby = current_user.baby
 
       weeks_left = @birth_count / 7
-      @image = 40 - weeks_left
+      @weeks = 40 - weeks_left
 
       erb :'/users/dashboard'
     else

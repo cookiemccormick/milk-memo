@@ -17,7 +17,7 @@
 
   <label>Choose Your Baby's Gender:</label>
   <% Baby::GENDERS.each do |gender| %>
-    <label><input type="radio" name="baby[gender]" id="<%= gender %>" value="<%= gender %>" <%= @baby.gender == gender ? "checked" : "" %>><%= gender %></label>
+    <label><input type="radio" name="baby[gender]" id="<%= gender %>" value="<%= gender %>" <%= @baby.gender == gender ? "checked" : "" %>><span><%= gender %></span></label>
   <% end %>
 
   <br>
