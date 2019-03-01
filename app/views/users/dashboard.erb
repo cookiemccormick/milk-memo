@@ -18,11 +18,11 @@
   <h4>Current Size:</h4>
 
   <% if @weeks < 4 %>
-    Your baby is still growing and not the size of any fruits yet.
+    Your baby is still growing and not the size of any fruits or vegetables yet.
   <% else %>
     <figure>
-      <img src="images/<%= @weeks %>_weeks.jpg" alt="baby size at <%= @weeks %> weeks">
-      <figcaption><%= Baby::SIZES[@weeks.to_s] %>Baby/Fruit size comparison.</figcaption>
+      <img src="images/<%= @weeks %>_weeks.jpg" alt="picture of a <%= Baby::SIZES[@weeks.to_s] %>">
+      <figcaption>Your baby is approximately the size of a <%= Baby::SIZES[@weeks.to_s] %>.</figcaption>
     </figure>
   <% end %>
 
