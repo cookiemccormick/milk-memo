@@ -12,7 +12,7 @@
   <label for ="time">Time:</label>
   <input type="time" name="appointment[time]" id="time" value="<%= @appointment.time.strftime("%H:%M") %>">
 
-  <input type="submit" id="submit" value="Update">
+  <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
 </form>
 
 <br>
@@ -20,5 +20,5 @@
 <form action="/appointments/<%= @appointment.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="delete">
 
-  <input type="submit" id="submit" value="Delete">
+  <button class="btn waves-effect waves-light" type="submit" name="action">Delete</button>
 </form>

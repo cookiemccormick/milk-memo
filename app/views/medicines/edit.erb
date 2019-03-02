@@ -1,4 +1,4 @@
-<h2>Edit Mediciation</h2>
+<h2>Edit Medication</h2>
 
 <form action="/medicines/<%= @medicine.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
@@ -12,7 +12,7 @@
   <label for="description">Description</label>
   <input type="text" name="medicine[description]" id="description" value="<%= @medicine.description %>">
 
-  <input type="submit" id="submit" value="Update">
+  <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
 </form>
 
 <br>
@@ -20,5 +20,5 @@
 <form action="/medicines/<%= @medicine.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="delete">
 
-  <input type="submit" id="submit" value="Delete">
+  <button class="btn waves-effect waves-light" type="submit" name="action">Delete</button>
 </form>

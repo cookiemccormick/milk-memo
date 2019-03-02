@@ -1,7 +1,6 @@
 <h2>Create new Medication</h2>
 
 <form action="/medicines" method="POST">
-
   <label for="medicine_name">Medicine Name:</label>
   <input type="text" name="medicine[name]" id="medicine_name">
 
@@ -11,5 +10,5 @@
   <label for="description">Description:</label>
   <input type="text" name="medicine[description]" id="description">
 
-  <input type="submit" id="submit" value="Submit">
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
 </form>
