@@ -37,7 +37,7 @@
 
 <div class="col s12 m12">
   <ul class="collection with-header">
-    <li class="collection-header"><h4>Notes</h4></li>
+    <li class="collection-header teal lighten-1"><h4>Notes</h4></li>
     <li><% current_user.notes.order("created_at DESC").each do |note| %>
       <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
       <a href="/notes/<%= note.id %>/edit">Edit</a>
@@ -50,7 +50,7 @@
 
 <div class="col s12 m6">
   <ul class="collection with-header">
-    <li class="collection-header"><h4>Medications</h4></li>
+    <li class="collection-header teal lighten-1"><h4>Medications</h4></li>
     <li><% current_user.medicines.order("name ASC").each do |medicine| %>
       <%= medicine.name %> - <%= medicine.dose %>
       <br>
@@ -65,7 +65,7 @@
 
 <div class="col s12 m6">
   <ul class="collection with-header">
-    <li class="collection-header"><h4>Appointments</h4></li>
+    <li class="collection-header teal lighten-1"><h4>Appointments</h4></li>
     <li><% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
       <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
       <br>
