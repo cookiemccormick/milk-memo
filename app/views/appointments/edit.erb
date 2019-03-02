@@ -7,7 +7,7 @@
   <input type="text" name="appointment[name]" id="appointment_name" value="<%= @appointment.name %>">
 
   <label for="date">Date:</label>
-  <input type="date" name="appointment[date]" id="date" value="<%= @appointment.date %>">
+  <input class="datepicker" type="text" name="appointment[date]" id="date" value="<%= @appointment.date %>">
 
   <label for ="time">Time:</label>
   <input type="time" name="appointment[time]" id="time" value="<%= @appointment.time.strftime("%H:%M") %>">
