@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <section>
   <h2>Welcome <%= current_user.username %> you have
     <%= @birth_count %> days to go!
@@ -31,51 +35,48 @@
   <a href="/baby/edit">Edit</a>
 </section>
 
-<section>
-  <h3>Notes Log:</h3>
-    <ul>
-      <% current_user.notes.order("created_at DESC").each do |note| %>
-        <li>
-          <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
-          <a href="/notes/<%= note.id %>/edit">Edit</a>
-        </li>
-      <% end %>
-    </ul>
+<div class="col s12 m12">
+  <ul class="collection with-header">
+    <li class="collection-header"><h4>Notes</h4></li>
+    <li><% current_user.notes.order("created_at DESC").each do |note| %>
+      <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
+      <a href="/notes/<%= note.id %>/edit">Edit</a>
+      <br>
+    </li>
+    <% end %>
     <a href="/notes/new">Add Note</a>
-  </section>
+  </ul>
+</div>
 
-  <section>
-    <h3>Medications:</h3>
-    <ul>
-      <% current_user.medicines.order("name ASC").each do |medicine| %>
-        <li>
-          <%= medicine.name %> - <%= medicine.dose %>
-          <br>
-          <%= medicine.description %>
-          <br>
-          <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
-        </li>
-      <% end %>
-    </ul>
+<div class="col s12 m6">
+  <ul class="collection with-header">
+    <li class="collection-header"><h4>Medications</h4></li>
+    <li><% current_user.medicines.order("name ASC").each do |medicine| %>
+      <%= medicine.name %> - <%= medicine.dose %>
+      <br>
+      <%= medicine.description %>
+      <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
+      <br>
+    </li>
+    <% end %>
     <a href="/medicines/new">Add Medication</a>
-  </section>
+  </ul>
+</div>
 
-  <section>
-    <h3>Appointments:</h3>
-    <ul>
-      <% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
-        <li>
-          <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
-          <br>
-          <%= appointment.name %>
-          <br>
-          <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
-        </li>
-      <% end %>
-    </ul>
+<div class="col s12 m6">
+  <ul class="collection with-header">
+    <li class="collection-header"><h4>Appointments</h4></li>
+    <li><% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
+      <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
+      <br>
+      <%= appointment.name %>
+      <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
+      <br>
+    </li>
+    <% end %>
     <a href="/appointments/new">Add Appointment</a>
-    <h3>
-  </section>
+  </ul>
+</div>
 
   <section>
     <a class="button" href="/logout">Logout</a>
