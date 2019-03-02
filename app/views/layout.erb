@@ -1,15 +1,56 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Milk Memo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Milk Memo, your personal pregnancy tracker.">
+    <meta name="keywords" content="Milk Memo, pregnancy, babies">
+    <meta name="author" content="Alisa Cookie McCormick">
+    <title>Milk Memo - Personal Pregnancy Tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
 
-    <div class="container">
-      <h1>Milk Memo</h1>
-    </div>
+    <nav>
+      <div class=" teal lighten-1 nav-wrapper">
+        <a href="#!" class="brand-logo center">Milk Memo</a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="/dashboard">My Dashboard</a></li>
+          <li><a href="/baby/edit">Baby</a></li>
+          <li><a hfef="/notes/new">Notes</a></li>
+          <li><a href="/medicines/new">Medication</a></li>
+          <li><a href="/appointments/new">Appointments</a></li>
+        </ul>
 
-    <%= yield %>
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="/dashboard">My Dashboard</a></li>
+          <li><a href="/baby/edit">Baby</a></li>
+          <li><a hfef="/notes/new">Notes</a></li>
+          <li><a href="/medicines/new">Medication</a></li>
+          <li><a href="/appointments/new">Appointments</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+      </div>
+    </nav>
+
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <div id="logo" class="center">
+          <img src="/images/baby_bottle.png" alt="Milk Memo Logo">
+        </div>
+        <h1 class="header center black-text">Milk Memo</h1>
+        <div class="row center">
+
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
