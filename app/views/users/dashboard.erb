@@ -8,40 +8,59 @@
   </h2>
 </section>
 
-<section>
-  <h3>
-    <% if @baby.name.present? %>
-      About <%= @baby.name %>:
-    <% else %>
-      About your baby:
+<div class="col s12 m8">
+  <ul class="collection with-header">
+    <li class="collection-header teal lighten-1">
+      <h4>
+        <% if @baby.name.present? %>
+          About <%= @baby.name %>:
+        <% else %>
+          About your baby:
+        <% end %>
+      </h4>
+    </li>
+    <li>Gender: <%= @baby.gender %></li>
+    <li>Due Date: <%= @baby.due_date.strftime("%-m/%-d/%y") %></li>
+    <li>Current Size:
+      <% if @weeks < 4 %>
+        Your baby is still growing and not the size of any fruits or vegetables yet.
+      <% else %>
+        <figure>
+          <img id="baby" src="images/<%= @weeks %>_weeks.jpg" alt="picture of a <%= Baby::SIZES[@weeks.to_s] %>">
+          <figcaption>Your baby is approximately the size of a <%= Baby::SIZES[@weeks.to_s] %>.</figcaption>
+        </figure>
+      <% end %>
+      <a href="/baby/edit">Edit</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col s12 m4">
+  <ul class="collection with-header">
+    <li class="collection-header teal lighten-1"><h4>Appointments</h4></li>
+    <li><% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
+      <div class="list">
+        <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
+        <br>
+        <%= appointment.name %>
+        <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
+      </div>
+      <br>
+    </li>
     <% end %>
-  </h3>
+    <a href="/appointments/new">Add Appointment</a>
+  </ul>
+</div>
 
-  <h4>Gender: <%= @baby.gender %></h4>
-  <h4>Due Date: <%= @baby.due_date.strftime("%-m/%-d/%y") %></h4>
-  <h4>Current Size:</h4>
-
-  <% if @weeks < 4 %>
-    Your baby is still growing and not the size of any fruits or vegetables yet.
-  <% else %>
-    <figure>
-      <img src="images/<%= @weeks %>_weeks.jpg" alt="picture of a <%= Baby::SIZES[@weeks.to_s] %>">
-      <figcaption>Your baby is approximately the size of a <%= Baby::SIZES[@weeks.to_s] %>.</figcaption>
-    </figure>
-  <% end %>
-
-  <br>
-
-  <a href="/baby/edit">Edit</a>
-</section>
-
-<div class="col s12 m12">
+<div class="col s12 m6">
   <ul class="collection with-header">
     <li class="collection-header teal lighten-1"><h4>Notes</h4></li>
     <li><% current_user.notes.order("created_at DESC").each do |note| %>
-      <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
-      <a href="/notes/<%= note.id %>/edit">Edit</a>
-      <br>
+      <div class="list">
+        <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
+        <a href="/notes/<%= note.id %>/edit">Edit</a>
+        <br>
+      </div>
     </li>
     <% end %>
     <a href="/notes/new">Add Note</a>
@@ -52,29 +71,16 @@
   <ul class="collection with-header">
     <li class="collection-header teal lighten-1"><h4>Medications</h4></li>
     <li><% current_user.medicines.order("name ASC").each do |medicine| %>
-      <%= medicine.name %> - <%= medicine.dose %>
-      <br>
-      <%= medicine.description %>
-      <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
-      <br>
+      <div class="list">
+        <%= medicine.name %> - <%= medicine.dose %>
+        <br>
+        <%= medicine.description %>
+        <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
+        <br>
+      </div>
     </li>
     <% end %>
     <a href="/medicines/new">Add Medication</a>
-  </ul>
-</div>
-
-<div class="col s12 m6">
-  <ul class="collection with-header">
-    <li class="collection-header teal lighten-1"><h4>Appointments</h4></li>
-    <li><% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
-      <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
-      <br>
-      <%= appointment.name %>
-      <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
-      <br>
-    </li>
-    <% end %>
-    <a href="/appointments/new">Add Appointment</a>
   </ul>
 </div>
 

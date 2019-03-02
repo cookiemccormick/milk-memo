@@ -9,3 +9,12 @@
 .collection-header h4 {
   color: white;
 }
+
+.list {
+  text-align: left;
+}
+
+#baby {
+  max-width: 100%;
+  height; auto;
+}
