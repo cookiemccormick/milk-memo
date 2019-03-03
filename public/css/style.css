@@ -27,3 +27,11 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+.form-container {
+  width: 400px;
+}
+
+.page-header {
+  font-size: 30px;
+}
