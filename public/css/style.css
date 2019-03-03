@@ -47,10 +47,15 @@
   margin: 1px;
 }
 
-.appt-table th {
+.dash-items {
   font-size: 13px;
 }
 
-.appt-table td {
-  font-size: 13px;
+.baby-items {
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.image-box {
+  margin: 5px 20px 0px 20px;
 }
