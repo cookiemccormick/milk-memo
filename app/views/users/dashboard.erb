@@ -27,7 +27,7 @@
       <% else %>
         <figure>
           <img id="baby" src="images/<%= @weeks %>_weeks.jpg" alt="picture of a <%= Baby::SIZES[@weeks.to_s] %>">
-          <figcaption>Your baby is approximately the size of a <%= Baby::SIZES[@weeks.to_s] %>.</figcaption>
+          <figcaption>Your baby is approximately the size of <%= Baby::SIZES[@weeks.to_s] %>.</figcaption>
         </figure>
       <% end %>
       <a href="/baby/edit">Edit</a>
