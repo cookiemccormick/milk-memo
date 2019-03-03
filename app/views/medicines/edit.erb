@@ -1,24 +1,30 @@
-<h2>Edit Medication</h2>
+<div class="form-container row center">
+  <h2 class="page-header">Edit Medication</h2>
+  <form class="center" action="/medicines/<%= @medicine.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
-<form action="/medicines/<%= @medicine.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="patch">
+    <div class="input-field row">
+      <label for="medicine_name">Medication Name</label>
+      <input type="text" name="medicine[name]" id="medicine_name" value="<%= @medicine.name %>">
+    </div>
 
-  <label for="medicine_name">Medication Name:</label>
-  <input type="text" name="medicine[name]" id="medicine_name" value="<%= @medicine.name %>">
+    <div class="input-field row">
+      <label for="dose">Dosage</label>
+      <input type="text" name="medicine[dose]" id="dose" value="<%= @medicine.dose %>">
+    </div>
 
-  <label for="dose">Dosage:</label>
-  <input type="text" name="medicine[dose]" id="dose" value="<%= @medicine.dose %>">
+    <div class="input-field row">
+      <label for="description">Description</label>
+      <input type="text" name="medicine[description]" id="description" value="<%= @medicine.description %>">
+    </div>
 
-  <label for="description">Description</label>
-  <input type="text" name="medicine[description]" id="description" value="<%= @medicine.description %>">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
+  </form>
+</div>
 
-  <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
-</form>
-
-<br>
-
-<form action="/medicines/<%= @medicine.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">Delete</button>
-</form>
+<div class="form-container row center">
+  <form class="center" action="/medicines/<%= @medicine.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Delete</button>
+  </form>
+</div>

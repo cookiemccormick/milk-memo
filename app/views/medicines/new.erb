@@ -1,14 +1,22 @@
-<h2>Create new Medication</h2>
+<div class="form-container row center">
+  <h2 class="page-header">Create New Medication</h2>
+  <form class="center" action="/medicines" method="POST">
 
-<form action="/medicines" method="POST">
-  <label for="medicine_name">Medicine Name:</label>
-  <input type="text" name="medicine[name]" id="medicine_name">
+    <div class="input-field row">
+      <label for="medicine_name">Medicine Name</label>
+      <input type="text" name="medicine[name]" id="medicine_name">
+    </div>
 
-  <label for="dose">Dosage:</label>
-  <input type="text" name="medicine[dose]" id="dose">
+    <div class="input-field row">
+      <label for="dose">Dosage</label>
+      <input type="text" name="medicine[dose]" id="dose">
+    </div>
 
-  <label for="description">Description:</label>
-  <input type="text" name="medicine[description]" id="description">
+    <div class="input-field row">
+      <label for="description">Description</label>
+      <input type="text" name="medicine[description]" id="description">
+    </div>
 
-  <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-</form>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+  </form>
+</div>
