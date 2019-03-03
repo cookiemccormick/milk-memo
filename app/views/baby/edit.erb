@@ -1,27 +1,24 @@
-<h2>Edit Your Baby</h2>
+<div class="form-container row center">
+  <h2 class="page-header">Edit Your Baby</h2>
+  <form class="center" action="/baby" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
-<form action="/baby" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="patch">
+    <div class="input-field row">
+      <label for="baby_name">Baby Name:</label>
+      <input type="text" name="baby[name]" id="baby_name" value="<%= @baby.name %>">
+    </div>
 
-  <label for="baby_name">Baby Name:</label>
-  <input type="text" name="baby[name]" id="baby_name" value="<%= @baby.name %>">
+    <div class="input-field row">
+      <label for="due_date">Due Date:</label>
+      <input class="datepicker" type="text" name="baby[due_date]" id="due_date" value="<%= @baby.due_date %>">
+    </div>
 
-  <br>
-  <br>
-
-  <label for="due_date">Due Date:</label>
-  <input class="datepicker" type="text" name="baby[due_date]" id="due_date" value="<%= @baby.due_date %>">
-
-  <br>
-  <br>
-
-  <label>Choose Your Baby's Gender:</label>
-  <% Baby::GENDERS.each do |gender| %>
-    <label><input type="radio" name="baby[gender]" id="<%= gender %>" value="<%= gender %>" <%= @baby.gender == gender ? "checked" : "" %>><span><%= gender %></span></label>
-  <% end %>
-
-  <br>
-  <br>
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
-</form>
+    <div>
+      <% Baby::GENDERS.each do |gender| %>
+        <label><input type="radio" name="baby[gender]" id="<%= gender %>" value="<%= gender %>" <%= @baby.gender == gender ? "checked" : "" %>><span><%= gender %></span></label>
+      <% end %>
+    </div>
+    
+    <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
+  </form>
+</div>
