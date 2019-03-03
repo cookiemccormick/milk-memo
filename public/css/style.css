@@ -14,14 +14,12 @@
   max-width: 100%;
 }
 
-
 .brand-logo img {
   vertical-align: middle;
   position: relative;
   width: 40px;
   top: -4px;
 }
-
 
 #tagline {
   padding-top: 50px;
@@ -34,4 +32,16 @@
 
 .page-header {
   font-size: 30px;
+}
+
+.message {
+  background-color: #ff80ab;
+  border-color: #64ffda;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.box-header {
+  font-size: 15px;
+  margin: 1px;
 }

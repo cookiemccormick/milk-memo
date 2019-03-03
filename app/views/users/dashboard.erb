@@ -1,9 +1,9 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+  <% if flash.has?(:message) %>
+    <div class="message"><%= flash[:message] %></div>
+  <% end %>
 
 <section>
-  <h2>Welcome <%= current_user.username %> you have
+  <h2 class="page-header">Welcome <%= current_user.username %> you have
     <%= @birth_count %> days to go!
   </h2>
 </section>
@@ -11,9 +11,9 @@
 <div class="col s12 m8">
   <ul class="collection with-header">
     <li class="collection-header teal lighten-1">
-      <h4>
+      <h4 class="box-header">
         <% if @baby.name.present? %>
-          About <%= @baby.name %>:
+          About <%= @baby.name %>
         <% else %>
           About your baby:
         <% end %>
@@ -37,7 +37,7 @@
 
 <div class="col s12 m4">
   <ul class="collection with-header">
-    <li class="collection-header teal lighten-1"><h4>Appointments</h4></li>
+    <li class="collection-header teal lighten-1"><h4 class="box-header">Appointments</h4></li>
     <li><% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
       <div class="list">
         <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
@@ -54,7 +54,7 @@
 
 <div class="col s12 m6">
   <ul class="collection with-header">
-    <li class="collection-header teal lighten-1"><h4>Notes</h4></li>
+    <li class="collection-header teal lighten-1"><h4 class="box-header">Notes</h4></li>
     <li><% current_user.notes.order("created_at DESC").each do |note| %>
       <div class="list">
         <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
@@ -69,7 +69,7 @@
 
 <div class="col s12 m6">
   <ul class="collection with-header">
-    <li class="collection-header teal lighten-1"><h4>Medications</h4></li>
+    <li class="collection-header teal lighten-1"><h4 class="box-header">Medications</h4></li>
     <li><% current_user.medicines.order("name ASC").each do |medicine| %>
       <div class="list">
         <%= medicine.name %> - <%= medicine.dose %>
