@@ -8,6 +8,7 @@
 
 .list {
   text-align: left;
+  padding: 20px 20px 0px 20px;
 }
 
 #baby {
@@ -44,4 +45,12 @@
 .box-header {
   font-size: 15px;
   margin: 1px;
+}
+
+.appt-table th {
+  font-size: 13px;
+}
+
+.appt-table td {
+  font-size: 13px;
 }

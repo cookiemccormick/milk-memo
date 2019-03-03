@@ -38,19 +38,47 @@
 <div class="col s12 m4">
   <ul class="collection with-header">
     <li class="collection-header teal lighten-1"><h4 class="box-header">Appointments</h4></li>
+    <li>
+      <table class="appt-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Apppointment</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
+            <tr>
+              <td><%= appointment.date.strftime("%-m/%-d") %></td>
+              <td><%= appointment.time.strftime("%l:%M%p") %></td>
+              <td><%= appointment.name %></td>
+              <td><a href="/appointments/<%= appointment.id %>/edit">Edit</a></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+</div>
+
+
+<!--
+  <ul class="collection with-header">
+    <li class="collection-header teal lighten-1"><h4 class="box-header">Appointments</h4></li>
     <li><% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
       <div class="list">
-        <%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %>
-        <br>
-        <%= appointment.name %>
+        <span class="date-time"><%= appointment.date.strftime("%-m/%-d") %> <%= appointment.time.strftime("%l:%M%p") %></span> <%= appointment.name %>
         <a href="/appointments/<%= appointment.id %>/edit">Edit</a>
       </div>
-      <br>
     </li>
     <% end %>
     <a href="/appointments/new">Add Appointment</a>
   </ul>
 </div>
+-->
 
 <div class="col s12 m6">
   <ul class="collection with-header">
@@ -59,7 +87,6 @@
       <div class="list">
         <%= note.created_at.month %>/<%= note.created_at.day %> - <%= note.content %>
         <a href="/notes/<%= note.id %>/edit">Edit</a>
-        <br>
       </div>
     </li>
     <% end %>
@@ -73,10 +100,8 @@
     <li><% current_user.medicines.order("name ASC").each do |medicine| %>
       <div class="list">
         <%= medicine.name %> - <%= medicine.dose %>
-        <br>
         <%= medicine.description %>
         <a href="/medicines/<%= medicine.id %>/edit">Edit</a>
-        <br>
       </div>
     </li>
     <% end %>
