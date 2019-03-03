@@ -1,18 +1,12 @@
-<h2>Edit Note</h2>
+<div class="form-container row center">
+  <h2 class="page-header">Edit Note</h2>
+  <form class="center" action="/notes/<%= @note.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
-<form action="/notes/<%= @note.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="patch">
+    <div class="form-container row center">
+      <textarea class="materialize-textarea" name="note[content]" id="content" value="<%= @note.content %>"></textarea>
+    </div>
 
-  <label for="content">Update Notes:</label>
-  <input type="text" name="note[content]" id="content" value="<%= @note.content %>">
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
-</form>
-
-<br>
-
-<form action="/notes/<%= @note.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">Delete</button>
-</form>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
+  </form>
+</div>

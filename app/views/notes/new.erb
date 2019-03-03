@@ -1,9 +1,12 @@
-<h2>Create a new Note</h2>
+<div class="form-container row center">
+  <h2 class="page-header">Create a new Note</h2>
+  <form class="center" action="/notes" method="POST">
 
-<form action="/notes" method="POST">
+    <div class="input-field row">
+      <label for="content">Enter your note</label>
+      <textarea class="materialize-textarea" name="note[content]" id="content"></textarea>
+    </div>
 
-  <label for="content">Notes:</label>
-  <input type="text" name="note[content]" id="content">
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-</form>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+  </form>
+</div>
