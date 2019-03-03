@@ -1,15 +1,19 @@
-<h2>Create New Appointment</h2>
+<div class="form-container row center">
+  <h2 class="page-header">Create New Appointment</h2>
+  <form class="center" action="/appointments" method="POST">
+    <div class="input-field row">
+      <label for="appointment_name">Appointment</label>
+      <input type="text" name="appointment[name]" id="appointment_name">
+    </div>
+    <div class="input-field row">
+      <label for="date">Date</label>
+      <input class="datepicker" type="text" name="appointment[date]" id="date">
+    </div>
+    <div class="input-field row">
+      <label for="time">Time</label>
+      <input class="timepicker" type="text" name="appointment[time]" id="time">
+    </div>
 
-<form action="/appointments" method="POST">
-
-  <label for="appointment_name">Appointment:</label>
-  <input type="text" name="appointment[name]" id="appointment_name">
-
-  <label for="date">Date:</label>
-  <input class="datepicker" type="text" name="appointment[date]" id="date">
-
-  <label for="time">Time:</label>
-  <input class="timepicker" type="text" name="appointment[time]" id="time">
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-</form>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+  </form>
+</div>
