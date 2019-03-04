@@ -4,6 +4,7 @@ class BabiesController < ApplicationController
       @baby = current_user.baby
       erb :'/baby/edit'
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end
@@ -11,16 +12,19 @@ class BabiesController < ApplicationController
   patch '/baby' do
     if logged_in?
       @baby = current_user.baby
-      if params[:baby][:name].present? ||
-        params[:baby][:due_date].present? ||
+      if params[:baby][:name].present? &&
+        params[:baby][:due_date].present? &&
         params[:baby][:gender].present?
         @baby.update(params[:baby])
+
         flash[:message] = "Your baby has been updated."
         redirect '/dashboard'
       else
+        flash[:message] = "Please enter content for all fields."
         redirect "/baby/edit"
       end
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end
