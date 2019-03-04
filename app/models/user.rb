@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  has_one :baby
-  has_many :medicines
-  has_many :notes
-  has_many :appointments
+  has_one :baby, dependent: :destroy
+  has_many :medicines, dependent: :destroy
+  has_many :notes, dependent: :destroy
+  has_many :appointments, dependent: :destroy
 
   has_secure_password
   validates_presence_of :username, :password, :email

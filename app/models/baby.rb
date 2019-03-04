@@ -47,4 +47,5 @@ class Baby < ActiveRecord::Base
 
   belongs_to :user
   validates_presence_of :user, :due_date, :gender
+  validates :gender, inclusion: {in: GENDERS}
 end
