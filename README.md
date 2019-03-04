@@ -1,4 +1,4 @@
-# MilkMemo
+# Milk Memo
 
 This Ruby Gem is a full scale Sinatra application for keeping track of your pregnancy.
 
