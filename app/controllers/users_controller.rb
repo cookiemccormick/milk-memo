@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       params[:user][:email].blank? ||
       params[:baby][:due_date].blank?
 
+      flash[:message] = "Please enter content for all fields."
       redirect '/signup'
     else
       @user = User.create(params[:user])
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/dashboard'
     else
+      flash[:message] = "Your username or password could not be identified.  Please sign up."
       redirect '/signup'
     end
   end
@@ -50,6 +52,7 @@ class UsersController < ApplicationController
 
       erb :'/users/dashboard'
     else
+      flash[:message] = "Please login."
       redirect '/login'
     end
   end
