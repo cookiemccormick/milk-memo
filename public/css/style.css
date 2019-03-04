@@ -6,9 +6,10 @@
   color: white;
 }
 
-.list {
+.list-items {
   text-align: left;
   padding: 20px 20px 0px 20px;
+  font-size: 13px;
 }
 
 #baby {
@@ -56,6 +57,9 @@
   padding-top: 5px;
 }
 
+.baby-items.first {
+  padding-top: 20px;
+}
 .image-box {
   margin: 5px 20px 0px 20px;
 }
