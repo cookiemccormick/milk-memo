@@ -1,14 +1,10 @@
- <% if flash.has?(:message) %>
-    <div class="message"><%= flash[:message] %></div>
-  <% end %>
-
 <div class="form-container row center">
   <h2 class="page-header">Edit Note</h2>
   <form class="center" action="/notes/<%= @note.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
 
     <div class="form-container row center">
-      <textarea class="materialize-textarea" name="note[content]" id="content" value="<%= @note.content %>"></textarea>
+      <textarea class="materialize-textarea" name="note[content]" id="content"><%= @note.content %></textarea>
     </div>
 
     <button class="btn waves-effect waves-light" type="submit" name="action">Update</button>
