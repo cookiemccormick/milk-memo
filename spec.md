@@ -2,9 +2,9 @@
 
 Specs:
 - [x] Use Sinatra to build the app
-  Used Sinatra's application structure Milk Memo web application
+  Used Sinatra's application structure to develop Milk Memo.
 - [x] Use ActiveRecord for storing information in a database
-  Objects created in Milk Memo are stored in ActiveRecord.
+  Objects created in Milk Memo are modeled with ActiveRecord.
 - [x] Include more than one model class (e.g. User, Post, Category)
   Milk Memo has a total of 5 models - Baby, Appointment, Note, Medicine and User.
 - [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
@@ -16,10 +16,9 @@ Specs:
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
   Appointment, Note and Medicines all have routes for creating, reading, updated and destroying.  A baby is created upon signing up for the app, but once you are logged in, you may update, read and update the baby's data.
 - [x] Ensure that users can't modify content created by other users
-  Only the user, when logged in, is able to see their own data and be able to modify their content.  A user is not able to see other user's content.
+  Only the user, when logged in, is able to see their own data and be able to modify their content.  A user is not able to see other user's content.  When modifing content, objects are accessed through the current_user associations.
 - [x] Include user input validations
-  Null false validations are placed on most of the Create Table migrations except for the baby name.  That attribute may be updated later, in case the user does not know that information at that time of signup.  Validations are also placed in all the
-  models to make sure the attributes are present.
+  Null false validations are placed on most of the Create Table migrations except for the baby name.  That attribute may be updated later, in case the user does not know that information at that time of signup.  Validations are also placed in all the models to make sure the attributes are present.
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
   User receives a message confirming their actions of creating, editing or deleting an object.  User also receives a message if they login or signup incorrectly.
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code

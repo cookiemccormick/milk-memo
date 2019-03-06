@@ -67,8 +67,8 @@ class MedicinesController < ApplicationController
       @medicine = current_user.medicines.find_by(id: params[:id])
       if @medicine
         @medicine.destroy
+        flash[:message] = "Medication deleted."
       end
-      flash[:message] = "Medication deleted."
       redirect '/dashboard'
     else
       flash[:message] = "Please login."

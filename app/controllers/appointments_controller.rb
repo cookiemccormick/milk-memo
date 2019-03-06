@@ -67,8 +67,8 @@ class AppointmentsController < ApplicationController
       @appointment = current_user.appointments.find_by(id: params[:id])
       if @appointment
         @appointment.destroy
+        flash[:message] = "Appointment deleted."
       end
-      flash[:message] = "Appointment deleted."
       redirect '/dashboard'
     else
       redirect '/login'

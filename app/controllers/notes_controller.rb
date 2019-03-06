@@ -44,7 +44,7 @@ class NotesController < ApplicationController
     if logged_in?
       @note = current_user.notes.find_by(id: params[:id])
       if params[:note][:content].present?
-        @note.update(content: params[:note][:content])
+        @note.update(params[:note])
 
         flash[:message] = "Your note has been updated."
         redirect '/dashboard'
@@ -63,8 +63,8 @@ class NotesController < ApplicationController
       @note = current_user.notes.find_by(id: params[:id])
       if @note
         @note.destroy
+        flash[:message] = "Note deleted."
       end
-      flash[:message] = "Note deleted."
       redirect '/dashboard'
     else
       flash[:message] = "Please login."

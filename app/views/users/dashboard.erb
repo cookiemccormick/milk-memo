@@ -1,8 +1,8 @@
 <h2 class="page-header">
-  <% if @weeks_left < 0 || @weeks_left > 40 %>
+  <% if @baby.weeks < 0 || @baby.weeks > 40 %>
     Welcome <%= current_user.username %>!
   <% else %>
-    Welcome <%= current_user.username %> you have <%= @birth_count %> days to go!
+    Welcome <%= current_user.username %> you have <%= @baby.birth_count %> days to go!
   <% end %>
 </h2>
 
@@ -22,16 +22,16 @@
       Due Date: <%= @baby.due_date.strftime("%-m/%-d/%y") %>
     </li>
     <li class="baby-items">
-      <% if @weeks_left < 4 && @weeks_left > 0 %>
+      <% if @baby.weeks < 4 && @baby.weeks > 0 %>
         Your baby is still growing and not the size of any fruits or vegetables yet.
-      <% elsif @weeks_left < 0 %>
+      <% elsif @baby.weeks > 40 %>
         Congrats on your new bundle of joy!
-      <% elsif @weeks_left > 40 %>
+      <% elsif @baby.weeks < 0 %>
         We look forward to tracking your future pregnancy!
       <% else %>
         <figure class="image-box">
-          <img id="baby" src="images/<%= @weeks %>_weeks.jpg" alt="picture of a <%= Baby::SIZES[@weeks.to_s] %>">
-          <figcaption class="baby-data">Your baby is approximately the size of <%= Baby::SIZES[@weeks.to_s] %>.</figcaption>
+          <img id="baby" src="/images/<%= @baby.weeks %>_weeks.jpg" alt="picture of <%= Baby::SIZES[@baby.weeks.to_s] %>">
+          <figcaption class="baby-data">Your baby is approximately the size of <%= Baby::SIZES[@baby.weeks.to_s] %>.</figcaption>
         </figure>
       <% end %>
       <a href="/baby/edit">Edit</a>

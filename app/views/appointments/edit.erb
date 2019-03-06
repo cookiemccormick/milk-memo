@@ -7,10 +7,12 @@
       <label for="appointment_name">Appointment</label>
       <input type="text" name="appointment[name]" id="appointment_name" value="<%= @appointment.name %>">
     </div>
+
     <div class="input-field row">
       <label for="date">Date</label>
       <input class="datepicker" type="text" name="appointment[date]" id="date" value="<%= @appointment.date %>">
     </div>
+
     <div class="input-field row">
       <label for ="time">Time</label>
       <input class="timepicker" type="text" name="appointment[time]" id="time" value="<%= @appointment.time.strftime("%H:%M") %>">
