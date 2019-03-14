@@ -16,18 +16,20 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:user][:username].blank? ||
-      params[:user][:password].blank? ||
-      params[:user][:email].blank? ||
-      params[:baby][:due_date].blank?
+    @user = User.new(params[:user])
+    baby = @user.build_baby(params[:baby].merge(gender: Baby::UNKNOWN))
+    @user.validate
+    baby.validate
 
-      flash[:message] = "Please enter content for all fields."
-      redirect '/signup'
-    else
-      @user = User.create(params[:user])
-      @user.create_baby(params[:baby].merge(gender: Baby::UNKNOWN))
+    if @user.valid? && baby.valid?
+      @user.save
+      baby.save
       session[:user_id] = @user.id
       redirect '/dashboard'
+    else
+      errors = @user.errors.full_messages + baby.errors.full_messages
+      flash[:message] = errors.join(', ')
+      redirect '/signup'
     end
   end
 
@@ -45,7 +47,7 @@ class UsersController < ApplicationController
   get '/dashboard' do
     if logged_in?
       @baby = current_user.baby
-      
+
       erb :'/users/dashboard'
     else
       flash[:message] = "Please login."

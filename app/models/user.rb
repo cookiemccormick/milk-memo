@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
   has_many :appointments, dependent: :destroy
 
   has_secure_password
-  validates_presence_of :username, :password, :email
+  validates_presence_of :username, :email
+  validates :username, uniqueness: true
 end
