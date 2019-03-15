@@ -6,5 +6,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
   validates_presence_of :username, :email
-  validates :username, uniqueness: true
+
+  def self.username_taken?(username)
+    find_by(username: username)
+  end
 end

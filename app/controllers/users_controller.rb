@@ -16,19 +16,20 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.new(params[:user])
-    baby = @user.build_baby(params[:baby].merge(gender: Baby::UNKNOWN))
-    @user.validate
-    baby.validate
+    if User.username_taken?(params[:user][:username])
+      flash[:message] = "Your username is taken."
+      redirect '/signup'
+    elsif params[:user][:username].present? &&
+      params[:user][:password].present? &&
+      params[:user][:email].present? &&
+      params[:baby][:due_date].present?
 
-    if @user.valid? && baby.valid?
-      @user.save
-      baby.save
+      @user = User.create(params[:user])
+      @user.create_baby(params[:baby].merge(gender: Baby::UNKNOWN))
       session[:user_id] = @user.id
       redirect '/dashboard'
     else
-      errors = @user.errors.full_messages + baby.errors.full_messages
-      flash[:message] = errors.join(', ')
+      flash[:message] = "Please enter content for all fields."
       redirect '/signup'
     end
   end
