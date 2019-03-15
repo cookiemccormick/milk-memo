@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :appointments, dependent: :destroy
 
   has_secure_password
-  validates_presence_of :username, :email
+  validates_presence_of :username, :email, :password
 
   def self.username_taken?(username)
     find_by(username: username)
