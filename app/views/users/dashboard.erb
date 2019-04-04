@@ -54,7 +54,7 @@
         </thead>
 
         <tbody>
-          <% current_user.appointments.order("date ASC, time ASC").each do |appointment| %>
+          <% current_user.future_appointments.order("date ASC, time ASC").each do |appointment| %>
             <tr>
               <td><%= appointment.date.strftime("%-m/%-d") %></td>
               <td><%= appointment.time.strftime("%l:%M%p") %></td>

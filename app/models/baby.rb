@@ -26,7 +26,7 @@ class Baby < ActiveRecord::Base
     "21" => "a carrot",
     "22" => "a squash",
     "23" => "a grapefruit",
-    "24" => "a corn",
+    "24" => "corn",
     "25" => "an acorn squash",
     "26" => "a head of kale",
     "27" => "a cauliflower",

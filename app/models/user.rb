@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def self.username_taken?(username)
     find_by(username: username)
   end
+
+  def future_appointments
+    appointments.where("date > :today", {today: Date.today})
+  end
 end
